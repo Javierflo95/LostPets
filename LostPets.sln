@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2011
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LostPets.Droid", "LostPets.Droid\LostPets.Droid.csproj", "{391A0800-DF3A-47FF-A591-90E3F8940E0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{D9009A35-1586-43C7-9AD3-7F227EF62830}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{391A0800-DF3A-47FF-A591-90E3F8940E0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{391A0800-DF3A-47FF-A591-90E3F8940E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{391A0800-DF3A-47FF-A591-90E3F8940E0C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{391A0800-DF3A-47FF-A591-90E3F8940E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{391A0800-DF3A-47FF-A591-90E3F8940E0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{391A0800-DF3A-47FF-A591-90E3F8940E0C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D9009A35-1586-43C7-9AD3-7F227EF62830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9009A35-1586-43C7-9AD3-7F227EF62830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9009A35-1586-43C7-9AD3-7F227EF62830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9009A35-1586-43C7-9AD3-7F227EF62830}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D0DBAF1-8926-4F44-A754-1AB9DAF675FA}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://chatbotecci.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LostPets.Droid\\LostPets.Droid.csproj
+		SccProjectName1 = LostPets.Droid
+		SccLocalPath1 = LostPets.Droid
+		SccProjectUniqueName2 = Repository\\Repository.csproj
+		SccProjectName2 = Repository
+		SccLocalPath2 = Repository
+	EndGlobalSection
+EndGlobal
