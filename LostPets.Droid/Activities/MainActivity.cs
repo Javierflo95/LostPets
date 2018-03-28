@@ -25,7 +25,7 @@ namespace LostPets.Droid
             {
                 //validate if the edit text is not empty
                 if (!string.IsNullOrWhiteSpace(editText.Text))
-                    txtView.Text = editText.Text;
+                    txtView.Text = $"Hola, {editText.Text} Bienvenido";
                 else
                     button.Text = "Favor ingrese su nombre!.";
             };
