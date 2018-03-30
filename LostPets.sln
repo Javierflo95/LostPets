@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LostPets.Droid", "LostPets.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{D9009A35-1586-43C7-9AD3-7F227EF62830}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entitites", "Entitites\Entitites.csproj", "{7D04466D-2B33-4C4B-B153-3D21292B5E26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,23 +25,15 @@ Global
 		{D9009A35-1586-43C7-9AD3-7F227EF62830}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9009A35-1586-43C7-9AD3-7F227EF62830}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9009A35-1586-43C7-9AD3-7F227EF62830}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D04466D-2B33-4C4B-B153-3D21292B5E26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D04466D-2B33-4C4B-B153-3D21292B5E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D04466D-2B33-4C4B-B153-3D21292B5E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D04466D-2B33-4C4B-B153-3D21292B5E26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0D0DBAF1-8926-4F44-A754-1AB9DAF675FA}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://chatbotecci.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = LostPets.Droid\\LostPets.Droid.csproj
-		SccProjectName1 = LostPets.Droid
-		SccLocalPath1 = LostPets.Droid
-		SccProjectUniqueName2 = Repository\\Repository.csproj
-		SccProjectName2 = Repository
-		SccLocalPath2 = Repository
 	EndGlobalSection
 EndGlobal
