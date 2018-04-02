@@ -2437,6 +2437,9 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0044
 			public const int list_item = 2131492932;
 			
+			// aapt resource value: 0x7f0c009c
+			public const int map = 2131493020;
+			
 			// aapt resource value: 0x7f0c008b
 			public const int media_actions = 2131493003;
 			
@@ -2899,6 +2902,9 @@ namespace LostPets.Droid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f07004e
+			public const int GoogleKey = 2131165262;
 			
 			// aapt resource value: 0x7f070029
 			public const int abc_action_bar_home_description = 2131165225;

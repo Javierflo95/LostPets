@@ -106,12 +106,10 @@ namespace LostPets.Droid.Activities
             {
                 try
                 {
-
                     txtFirstName.Text = e.mProfile.FirstName;
                     txtLastName.Text = e.mProfile.LastName;
                     txtName.Text = e.mProfile.Name;
                     pictureView.ProfileId = e.mProfile.Id;
-
                 }
                 catch (Java.Lang.Exception ex)
                 {

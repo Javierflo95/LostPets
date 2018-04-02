@@ -4,4 +4,5 @@
   <string name="app_name">LostPets.Droid</string>
   <string name="facebook_app_id">889432484552187</string>
   <string name="fb_login_protocol_scheme">fb889432484552187</string>
+  <string name="GoogleKey">AIzaSyB81z-lXccJHvCJ9gM4LD_SBrzMYXhR9c8</string>
 </resources>

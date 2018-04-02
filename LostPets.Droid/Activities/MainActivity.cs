@@ -31,7 +31,7 @@ namespace LostPets.Droid
                     StartActivity(typeof(FacebookActivity));
                 }
                 else
-                    button.Text = "Favor ingrese su nombre!.";
+                    StartActivity(typeof(ViewMapActivity));
             };
 
         }
