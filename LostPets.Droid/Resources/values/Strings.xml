@@ -5,4 +5,6 @@
   <string name="facebook_app_id">889432484552187</string>
   <string name="fb_login_protocol_scheme">fb889432484552187</string>
   <string name="GoogleKey">AIzaSyB81z-lXccJHvCJ9gM4LD_SBrzMYXhR9c8</string>
+  <string name="app_name_face">InnovacionTecnologica</string>
+  <string name="ACCOUNT_KIT_CLIENT_TOKEN">[ACCOUNT_KIT_CLIENT_TOKEN]</string>
 </resources>

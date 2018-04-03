@@ -2903,6 +2903,9 @@ namespace LostPets.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f070050
+			public const int ACCOUNT_KIT_CLIENT_TOKEN = 2131165264;
+			
 			// aapt resource value: 0x7f07004e
 			public const int GoogleKey = 2131165262;
 			
@@ -3001,6 +3004,9 @@ namespace LostPets.Droid
 			
 			// aapt resource value: 0x7f07004b
 			public const int app_name = 2131165259;
+			
+			// aapt resource value: 0x7f07004f
+			public const int app_name_face = 2131165263;
 			
 			// aapt resource value: 0x7f070011
 			public const int com_facebook_device_auth_instructions = 2131165201;
