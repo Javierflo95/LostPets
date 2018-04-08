@@ -2,24 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/Fondo_Registro"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:background="@drawable/Logo"
+        android:layout_width="160dip"
+        android:layout_height="160dip"
+        android:scaleType="fitXY"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
     <TextView
-        android:text="Hola:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="140dp"
-        android:layout_height="40dp"
-        android:gravity="right"
-        android:id="@+id/lblNombre" />
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:id="@+id/txtEdit"
-        android:hint="Escribir nombre"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginLeft="5dp" />
-    <Button
-        android:id="@+id/myButton"
+        android:text="¿Tienes Cuenta?"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Aceptar" />
+        android:id="@+id/textView1"
+        android:layout_marginLeft="134.5dp"
+        android:layout_marginRight="124.0dp"
+        android:layout_marginTop="9.0dp" />
+    <Button
+        android:text="Ingresa con facebook"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/btnFacebookIn"
+        android:background="@drawable/ButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="15sp"
+        android:layout_marginBottom="0.0dp"
+        android:layout_marginTop="19.0dp" />
+    <TextView
+        android:text="Ó"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/txtOr"
+        android:textColor="#000"
+        android:gravity="center"
+        android:layout_weight="10" />
 </LinearLayout>
