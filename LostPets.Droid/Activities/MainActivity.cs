@@ -12,11 +12,13 @@ using Xamarin.Facebook.Login;
 using System;
 using Android.Content;
 using Android.Runtime;
+using Org.Json;
+using Entitites;
 
 namespace LostPets.Droid
 {
     [Activity(Label = "Lost Pets", Icon = "@mipmap/icon", Theme = "@style/Theme.AppCompat.Light.NoActionBar")]
-    public class MainActivity : AppCompatActivity, IFacebookCallback
+    public class MainActivity : AppCompatActivity, IFacebookCallback, GraphRequest.IGraphJSONObjectCallback
     {
 
         LoginButton btnLogin;
@@ -49,6 +51,7 @@ namespace LostPets.Droid
 
             if (AccessToken.CurrentAccessToken != null && Profile.CurrentProfile != null)
             {
+                ConfigurateFacebookData();
                 StartActivity(typeof(RegisterActivity));
             }
             else
@@ -61,55 +64,97 @@ namespace LostPets.Droid
                 ConnectWithFacebook();
             };
 
-            }
+        }
 
         public void ConnectWithFacebook()
+        {
+            //Initializes the sdk face
+            FacebookSdk.SdkInitialize(this.ApplicationContext);
+
+            oFacebookService = new FacebookService();
+            oFacebookService.mOnProfileChanged += OFacebookService_mOnProfileChanged;
+            oFacebookService.StartTracking();
+
+
+            btnLogin.SetReadPermissions(new List<string>
             {
-                //Initializes the sdk face
-                FacebookSdk.SdkInitialize(this.ApplicationContext);
+                "user_friends",
+                "public_profile",
+                "email"
+            });
 
-                oFacebookService = new FacebookService();
-                oFacebookService.mOnProfileChanged += OFacebookService_mOnProfileChanged;
-                oFacebookService.StartTracking();
+            ConfigurateFacebookData();
 
+        }
 
-                btnLogin.SetReadPermissions(new List<string> { "user_friends", "public_profile" });
-                oICallbackManager = CallbackManagerFactory.Create();
-                btnLogin.RegisterCallback(oICallbackManager, this);
+        public void ConfigurateFacebookData()
+        {
+            GraphRequest oGraphRequest = GraphRequest.NewMeRequest(AccessToken.CurrentAccessToken, this);
+            Bundle parameters = new Bundle();
+            parameters.PutString("fields", "id,name,birthday,email,address");
+            oGraphRequest.Parameters = parameters;
+            oGraphRequest.ExecuteAsync();
+            oICallbackManager = CallbackManagerFactory.Create();
+            btnLogin.RegisterCallback(oICallbackManager, this);
+        }
 
-
-            }
-
-            private void OFacebookService_mOnProfileChanged(object sender, OnProfileChangedEventArgs e)
+        private void OFacebookService_mOnProfileChanged(object sender, OnProfileChangedEventArgs e)
+        {
+            if (e.mProfile != null)
             {
-                if (e.mProfile != null)
+                try
                 {
-                    try
-                    {
-                        Global.GlobalApp.firstName = e.mProfile.FirstName;
-                        Global.GlobalApp.lastName = e.mProfile.LastName;
-                        Global.GlobalApp.name = e.mProfile.Name;
-                        Global.GlobalApp.pictureView = e.mProfile.Id;
-                        StartActivity(typeof(RegisterActivity));
+                    Global.GlobalApp.facebookProfile.firstName = e.mProfile.FirstName;
+                    Global.GlobalApp.facebookProfile.lastName = e.mProfile.LastName;
+                    Global.GlobalApp.facebookProfile.name = e.mProfile.Name;
+                    Global.GlobalApp.facebookProfile.id = e.mProfile.Id;
+                    StartActivity(typeof(RegisterActivity));
 
-                    }
-                    catch (Java.Lang.Exception ex)
-                    {
-                    }
                 }
-                else
+                catch (Java.Lang.Exception ex)
                 {
-                    Global.GlobalApp.firstName = string.Empty;
-                    Global.GlobalApp.lastName = string.Empty;
-                    Global.GlobalApp.name = string.Empty;
-                    Global.GlobalApp.pictureView = string.Empty;
                 }
             }
+            else
+            {
+                Global.GlobalApp.facebookProfile.firstName = string.Empty;
+                Global.GlobalApp.facebookProfile.lastName = string.Empty;
+                Global.GlobalApp.facebookProfile.name = string.Empty;
+                Global.GlobalApp.facebookProfile.id= string.Empty;
+            }
+        }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
             oICallbackManager.OnActivityResult(requestCode, (int)resultCode, data);
+        }
+
+        public void OnCompleted(JSONObject json, GraphResponse response)
+        {
+            try
+            {
+                if (json != null)
+                {
+                    var _json = Newtonsoft.Json.JsonConvert.DeserializeObject<FacebookProfile>(json.ToString());
+
+                    Global.GlobalApp.facebookProfile = _json;
+                    Global.GlobalApp.facebookProfile.id = json.OptString("id");
+                    Global.GlobalApp.facebookProfile.name = _json.name;
+                    Global.GlobalApp.accessToken = AccessToken.CurrentAccessToken.ToString();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                StartActivity(typeof(MainActivity));
+            }
+        }
+
+        protected override void OnDestroy()
+        {
+            oFacebookService.StopTracking();
+            base.OnDestroy();
+
         }
     }
 }

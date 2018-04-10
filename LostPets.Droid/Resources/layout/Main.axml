@@ -7,7 +7,7 @@
     android:gravity="center_horizontal">
     <ImageView
         android:id="@+id/imgLogo"
-        android:background="@drawable/Logo"
+        android:background="@drawable/iconformulario"
         android:layout_width="155dip"
         android:layout_height="155dip"
         android:scaleType="fitXY"
@@ -19,20 +19,6 @@
         android:text="¿Tienes Cuenta?"
         android:layout_marginTop="12.5dp"
         android:textColor="@color/com_facebook_button_text_color" />
-<!--<Button
-        android:id="@+id/fb_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:paddingEnd="20dp"
-        android:paddingStart="20dp"
-        android:text=" Iniciar Sesion con Facebook"
-        android:textAllCaps="false"
-        android:textColor="#4b3621"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:drawableRight="@drawable/com_facebook_favicon_blue"
-        android:layout_marginTop="4.0dp" />-->
     <LinearLayout
         android:orientation="vertical"
         android:minWidth="25px"

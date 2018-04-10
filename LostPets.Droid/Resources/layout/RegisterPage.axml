@@ -20,7 +20,7 @@
             android:layout_width="300dp"
             android:layout_height="27.5dp"
             android:id="@+id/txtName"
-            android:hint="Alejandra Diaz"
+            android:hint="Nombre"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:singleLine="true"
@@ -35,7 +35,7 @@
             android:layout_width="300dp"
             android:layout_height="27.5dp"
             android:id="@+id/txtNumber"
-            android:hint="3013444567"
+            android:hint="Telefono"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:singleLine="true"
@@ -59,14 +59,28 @@
                 android:id="@+id/txtCorreo"
                 android:textColor="#8B4513"
                 android:textColorHint="#8B4513"
-                android:hint="alejandra.diaz@hotmail.com"
+                android:hint="Correo electronico"
                 android:layout_marginTop="18.5dp"
                 android:layout_marginRight="0.0dp" />
         </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativeMap"
+        android:layout_width="match_parent"
+        android:layout_height="344.5dp"
+        android:orientation="vertical">
+        <fragment
+            android:id="@+id/map"
+            android:layout_width="376.0dp"
+            android:layout_height="343.5dp"
+            class="com.google.android.gms.maps.MapFragment"
+            android:layout_marginLeft="7.0dp"
+            android:layout_marginRight="9.5dp" />
     </RelativeLayout>
     <Button
         android:text="Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnRegistro" />
+        android:id="@+id/btnRegistro"
+        android:layout_marginTop="11.5dp" />
 </LinearLayout>

@@ -9,14 +9,13 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Entitites;
 
 namespace LostPets.Droid.Global
 {
     public class GlobalApp : Application
     {
-        public static string firstName { get; set; }
-        public static string lastName { get; set; }
-        public static string name { get; set; }
-        public static string pictureView { get; set; }
+        public static FacebookProfile facebookProfile { get; set; }
+        public static string accessToken { get; set; }
     }
 }
