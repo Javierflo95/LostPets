@@ -2104,85 +2104,88 @@ namespace LostPets.Droid
 			public const int common_google_signin_btn_text_light_normal_background = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int facebookImage = 2130837635;
+			public const int CustomEditText = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int Fondo_Registro = 2130837636;
+			public const int facebookImage = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int googleg_disabled_color_18 = 2130837637;
+			public const int Fondo_Registro = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int googleg_standard_color_18 = 2130837638;
+			public const int googleg_disabled_color_18 = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int Logo = 2130837639;
+			public const int googleg_standard_color_18 = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int messenger_bubble_large_blue = 2130837640;
+			public const int Logo = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int messenger_bubble_large_white = 2130837641;
+			public const int messenger_bubble_large_blue = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int messenger_bubble_small_blue = 2130837642;
+			public const int messenger_bubble_large_white = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int messenger_bubble_small_white = 2130837643;
+			public const int messenger_bubble_small_blue = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int messenger_button_blue_bg_round = 2130837644;
+			public const int messenger_bubble_small_white = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int messenger_button_blue_bg_selector = 2130837645;
+			public const int messenger_button_blue_bg_round = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int messenger_button_send_round_shadow = 2130837646;
+			public const int messenger_button_blue_bg_selector = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int messenger_button_white_bg_round = 2130837647;
+			public const int messenger_button_send_round_shadow = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int messenger_button_white_bg_selector = 2130837648;
+			public const int messenger_button_white_bg_round = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int notification_action_background = 2130837649;
+			public const int messenger_button_white_bg_selector = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int notification_bg = 2130837650;
+			public const int notification_action_background = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int notification_bg_low = 2130837651;
+			public const int notification_bg = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int notification_bg_low_normal = 2130837652;
+			public const int notification_bg_low = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int notification_bg_low_pressed = 2130837653;
+			public const int notification_bg_low_normal = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int notification_bg_normal = 2130837654;
+			public const int notification_bg_low_pressed = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int notification_bg_normal_pressed = 2130837655;
+			public const int notification_bg_normal = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int notification_icon_background = 2130837656;
-			
-			// aapt resource value: 0x7f02009c
-			public const int notification_template_icon_bg = 2130837660;
-			
-			// aapt resource value: 0x7f02009d
-			public const int notification_template_icon_low_bg = 2130837661;
+			public const int notification_bg_normal_pressed = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int notification_tile_bg = 2130837657;
+			public const int notification_icon_background = 2130837657;
+			
+			// aapt resource value: 0x7f02009d
+			public const int notification_template_icon_bg = 2130837661;
+			
+			// aapt resource value: 0x7f02009e
+			public const int notification_template_icon_low_bg = 2130837662;
 			
 			// aapt resource value: 0x7f02009a
-			public const int notify_panel_notification_icon_bg = 2130837658;
+			public const int notification_tile_bg = 2130837658;
 			
 			// aapt resource value: 0x7f02009b
-			public const int splashScreen = 2130837659;
+			public const int notify_panel_notification_icon_bg = 2130837659;
+			
+			// aapt resource value: 0x7f02009c
+			public const int splashScreen = 2130837660;
 			
 			static Drawable()
 			{
@@ -2209,8 +2212,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0080
 			public const int TxtName = 2131492992;
 			
-			// aapt resource value: 0x7f0c0089
-			public const int action0 = 2131493001;
+			// aapt resource value: 0x7f0c0087
+			public const int action0 = 2131492999;
 			
 			// aapt resource value: 0x7f0c0060
 			public const int action_bar = 2131492960;
@@ -2233,17 +2236,17 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c003d
 			public const int action_bar_title = 2131492925;
 			
-			// aapt resource value: 0x7f0c0086
-			public const int action_container = 2131492998;
+			// aapt resource value: 0x7f0c0084
+			public const int action_container = 2131492996;
 			
 			// aapt resource value: 0x7f0c0061
 			public const int action_context_bar = 2131492961;
 			
-			// aapt resource value: 0x7f0c008d
-			public const int action_divider = 2131493005;
+			// aapt resource value: 0x7f0c008b
+			public const int action_divider = 2131493003;
 			
-			// aapt resource value: 0x7f0c0087
-			public const int action_image = 2131492999;
+			// aapt resource value: 0x7f0c0085
+			public const int action_image = 2131492997;
 			
 			// aapt resource value: 0x7f0c0002
 			public const int action_menu_divider = 2131492866;
@@ -2260,11 +2263,11 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c003f
 			public const int action_mode_close_button = 2131492927;
 			
-			// aapt resource value: 0x7f0c0088
-			public const int action_text = 2131493000;
+			// aapt resource value: 0x7f0c0086
+			public const int action_text = 2131492998;
 			
-			// aapt resource value: 0x7f0c0096
-			public const int actions = 2131493014;
+			// aapt resource value: 0x7f0c0094
+			public const int actions = 2131493012;
 			
 			// aapt resource value: 0x7f0c0040
 			public const int activity_chooser_view_content = 2131492928;
@@ -2278,8 +2281,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c000f
 			public const int adjust_width = 2131492879;
 			
-			// aapt resource value: 0x7f0c00a1
-			public const int after_logo_tv = 2131493025;
+			// aapt resource value: 0x7f0c00a5
+			public const int after_logo_tv = 2131493029;
 			
 			// aapt resource value: 0x7f0c0054
 			public const int alertTitle = 2131492948;
@@ -2293,8 +2296,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0021
 			public const int automatic = 2131492897;
 			
-			// aapt resource value: 0x7f0c009f
-			public const int before_logo_tv = 2131493023;
+			// aapt resource value: 0x7f0c00a3
+			public const int before_logo_tv = 2131493027;
 			
 			// aapt resource value: 0x7f0c0035
 			public const int beginning = 2131492917;
@@ -2305,8 +2308,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0019
 			public const int box_count = 2131492889;
 			
-			// aapt resource value: 0x7f0c0083
-			public const int btnFacebookIn = 2131492995;
+			// aapt resource value: 0x7f0c00a0
+			public const int btnRegistro = 2131493024;
 			
 			// aapt resource value: 0x7f0c001a
 			public const int button = 2131492890;
@@ -2314,8 +2317,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0047
 			public const int buttonPanel = 2131492935;
 			
-			// aapt resource value: 0x7f0c008a
-			public const int cancel_action = 2131493002;
+			// aapt resource value: 0x7f0c0088
+			public const int cancel_action = 2131493000;
 			
 			// aapt resource value: 0x7f0c0073
 			public const int cancel_button = 2131492979;
@@ -2326,8 +2329,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0057
 			public const int checkbox = 2131492951;
 			
-			// aapt resource value: 0x7f0c0092
-			public const int chronometer = 2131493010;
+			// aapt resource value: 0x7f0c0090
+			public const int chronometer = 2131493008;
 			
 			// aapt resource value: 0x7f0c0039
 			public const int collapseActionView = 2131492921;
@@ -2395,8 +2398,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0036
 			public const int end = 2131492918;
 			
-			// aapt resource value: 0x7f0c009c
-			public const int end_padder = 2131493020;
+			// aapt resource value: 0x7f0c009a
+			public const int end_padder = 2131493018;
 			
 			// aapt resource value: 0x7f0c0041
 			public const int expand_activities_button = 2131492929;
@@ -2407,11 +2410,11 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c007c
 			public const int fblogin = 2131492988;
 			
-			// aapt resource value: 0x7f0c00a2
-			public const int footer_tv = 2131493026;
+			// aapt resource value: 0x7f0c00a6
+			public const int footer_tv = 2131493030;
 			
-			// aapt resource value: 0x7f0c009e
-			public const int header_tv = 2131493022;
+			// aapt resource value: 0x7f0c00a2
+			public const int header_tv = 2131493026;
 			
 			// aapt resource value: 0x7f0c0004
 			public const int home = 2131492868;
@@ -2425,8 +2428,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0045
 			public const int icon = 2131492933;
 			
-			// aapt resource value: 0x7f0c0097
-			public const int icon_group = 2131493015;
+			// aapt resource value: 0x7f0c0095
+			public const int icon_group = 2131493013;
 			
 			// aapt resource value: 0x7f0c0010
 			public const int icon_only = 2131492880;
@@ -2440,8 +2443,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0081
 			public const int imgLogo = 2131492993;
 			
-			// aapt resource value: 0x7f0c0093
-			public const int info = 2131493011;
+			// aapt resource value: 0x7f0c0091
+			public const int info = 2131493009;
 			
 			// aapt resource value: 0x7f0c001c
 			public const int inline = 2131492892;
@@ -2455,11 +2458,17 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0015
 			public const int light = 2131492885;
 			
-			// aapt resource value: 0x7f0c0098
-			public const int line1 = 2131493016;
+			// aapt resource value: 0x7f0c0096
+			public const int line1 = 2131493014;
 			
-			// aapt resource value: 0x7f0c009a
-			public const int line3 = 2131493018;
+			// aapt resource value: 0x7f0c0098
+			public const int line3 = 2131493016;
+			
+			// aapt resource value: 0x7f0c009e
+			public const int linear2 = 2131493022;
+			
+			// aapt resource value: 0x7f0c0082
+			public const int linearLayout1 = 2131492994;
 			
 			// aapt resource value: 0x7f0c0026
 			public const int listMode = 2131492902;
@@ -2467,17 +2476,17 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0044
 			public const int list_item = 2131492932;
 			
-			// aapt resource value: 0x7f0c00a0
-			public const int logo = 2131493024;
+			// aapt resource value: 0x7f0c00a4
+			public const int logo = 2131493028;
 			
-			// aapt resource value: 0x7f0c00a3
-			public const int map = 2131493027;
+			// aapt resource value: 0x7f0c00a7
+			public const int map = 2131493031;
 			
-			// aapt resource value: 0x7f0c008c
-			public const int media_actions = 2131493004;
+			// aapt resource value: 0x7f0c008a
+			public const int media_actions = 2131493002;
 			
-			// aapt resource value: 0x7f0c0085
-			public const int messenger_send_button = 2131492997;
+			// aapt resource value: 0x7f0c0083
+			public const int messenger_send_button = 2131492995;
 			
 			// aapt resource value: 0x7f0c0037
 			public const int middle = 2131492919;
@@ -2497,14 +2506,14 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c000b
 			public const int normal = 2131492875;
 			
-			// aapt resource value: 0x7f0c0095
-			public const int notification_background = 2131493013;
+			// aapt resource value: 0x7f0c0093
+			public const int notification_background = 2131493011;
 			
-			// aapt resource value: 0x7f0c008f
-			public const int notification_main_column = 2131493007;
+			// aapt resource value: 0x7f0c008d
+			public const int notification_main_column = 2131493005;
 			
-			// aapt resource value: 0x7f0c008e
-			public const int notification_main_column_container = 2131493006;
+			// aapt resource value: 0x7f0c008c
+			public const int notification_main_column_container = 2131493004;
 			
 			// aapt resource value: 0x7f0c0016
 			public const int open_graph = 2131492886;
@@ -2527,14 +2536,17 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0059
 			public const int radio = 2131492953;
 			
+			// aapt resource value: 0x7f0c009b
+			public const int relative = 2131493019;
+			
 			// aapt resource value: 0x7f0c0020
 			public const int right = 2131492896;
 			
-			// aapt resource value: 0x7f0c0094
-			public const int right_icon = 2131493012;
+			// aapt resource value: 0x7f0c0092
+			public const int right_icon = 2131493010;
 			
-			// aapt resource value: 0x7f0c0090
-			public const int right_side = 2131493008;
+			// aapt resource value: 0x7f0c008e
+			public const int right_side = 2131493006;
 			
 			// aapt resource value: 0x7f0c000c
 			public const int satellite = 2131492876;
@@ -2602,8 +2614,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0048
 			public const int spacer = 2131492936;
 			
-			// aapt resource value: 0x7f0c009d
-			public const int splash_wrapper_rl = 2131493021;
+			// aapt resource value: 0x7f0c00a1
+			public const int splash_wrapper_rl = 2131493025;
 			
 			// aapt resource value: 0x7f0c0007
 			public const int split_action_bar = 2131492871;
@@ -2620,8 +2632,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0011
 			public const int standard = 2131492881;
 			
-			// aapt resource value: 0x7f0c008b
-			public const int status_bar_latest_event_content = 2131493003;
+			// aapt resource value: 0x7f0c0089
+			public const int status_bar_latest_event_content = 2131493001;
 			
 			// aapt resource value: 0x7f0c005a
 			public const int submenuarrow = 2131492954;
@@ -2635,11 +2647,11 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c000d
 			public const int terrain = 2131492877;
 			
-			// aapt resource value: 0x7f0c009b
-			public const int text = 2131493019;
-			
 			// aapt resource value: 0x7f0c0099
-			public const int text2 = 2131493017;
+			public const int text = 2131493017;
+			
+			// aapt resource value: 0x7f0c0097
+			public const int text2 = 2131493015;
 			
 			// aapt resource value: 0x7f0c004e
 			public const int textSpacerNoButtons = 2131492942;
@@ -2647,11 +2659,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c004d
 			public const int textSpacerNoTitle = 2131492941;
 			
-			// aapt resource value: 0x7f0c0082
-			public const int textView1 = 2131492994;
-			
-			// aapt resource value: 0x7f0c0091
-			public const int time = 2131493009;
+			// aapt resource value: 0x7f0c008f
+			public const int time = 2131493007;
 			
 			// aapt resource value: 0x7f0c0046
 			public const int title = 2131492934;
@@ -2668,8 +2677,14 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0052
 			public const int topPanel = 2131492946;
 			
-			// aapt resource value: 0x7f0c0084
-			public const int txtOr = 2131492996;
+			// aapt resource value: 0x7f0c009f
+			public const int txtCorreo = 2131493023;
+			
+			// aapt resource value: 0x7f0c009c
+			public const int txtName = 2131493020;
+			
+			// aapt resource value: 0x7f0c009d
+			public const int txtNumber = 2131493021;
 			
 			// aapt resource value: 0x7f0c0018
 			public const int unknown = 2131492888;
@@ -2896,22 +2911,25 @@ namespace LostPets.Droid
 			public const int notification_template_part_time = 2130968630;
 			
 			// aapt resource value: 0x7f040037
-			public const int select_dialog_item_material = 2130968631;
+			public const int RegisterPage = 2130968631;
 			
 			// aapt resource value: 0x7f040038
-			public const int select_dialog_multichoice_material = 2130968632;
+			public const int select_dialog_item_material = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int select_dialog_singlechoice_material = 2130968633;
+			public const int select_dialog_multichoice_material = 2130968633;
 			
 			// aapt resource value: 0x7f04003a
-			public const int splash = 2130968634;
+			public const int select_dialog_singlechoice_material = 2130968634;
 			
 			// aapt resource value: 0x7f04003b
-			public const int support_simple_spinner_dropdown_item = 2130968635;
+			public const int splash = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int ViewMap = 2130968636;
+			public const int support_simple_spinner_dropdown_item = 2130968636;
+			
+			// aapt resource value: 0x7f04003d
+			public const int ViewMap = 2130968637;
 			
 			static Layout()
 			{
@@ -3172,6 +3190,9 @@ namespace LostPets.Droid
 			
 			// aapt resource value: 0x7f07004b
 			public const int hello = 2131165259;
+			
+			// aapt resource value: 0x7f070050
+			public const int login_facebook = 2131165264;
 			
 			// aapt resource value: 0x7f070028
 			public const int messenger_send_button_text = 2131165224;

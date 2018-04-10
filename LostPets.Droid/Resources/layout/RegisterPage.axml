@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bright_foreground_material_dark">
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="142.0dp"
+        android:orientation="horizontal">
+        <com.facebook.login.widget.ProfilePictureView
+            android:id="@+id/ImgPro"
+            android:layout_width="72.5dp"
+            android:layout_height="76.5dp"
+            android:layout_marginTop="0.0dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="15.0dp" />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="27.5dp"
+            android:id="@+id/txtName"
+            android:hint="Alejandra Diaz"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:background="@drawable/CustomEditText"
+            android:layout_marginLeft="91.5dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_marginTop="7.0dp"
+            android:textColor="#8B4513"
+            android:textColorHint="#8B4513"
+            android:textSize="15dp" />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="27.5dp"
+            android:id="@+id/txtNumber"
+            android:hint="3013444567"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:background="@drawable/CustomEditText"
+            android:layout_marginLeft="91.5dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_marginTop="34.5dp"
+            android:textColor="#8B4513"
+            android:textColorHint="#8B4513" />
+        <LinearLayout
+            android:id="@+id/linear2"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="81.5dp"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="51.0dp"
+                android:id="@+id/txtCorreo"
+                android:textColor="#8B4513"
+                android:textColorHint="#8B4513"
+                android:hint="alejandra.diaz@hotmail.com"
+                android:layout_marginTop="18.5dp"
+                android:layout_marginRight="0.0dp" />
+        </LinearLayout>
+    </RelativeLayout>
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRegistro" />
+</LinearLayout>

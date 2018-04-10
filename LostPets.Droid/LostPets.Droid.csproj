@@ -169,8 +169,10 @@
   <ItemGroup>
     <Compile Include="Activities\FacebookActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Activities\RegisterActivity.cs" />
     <Compile Include="Activities\SplashActiviy.cs" />
     <Compile Include="Activities\ViewMapActivity.cs" />
+    <Compile Include="Global\GlobalApp.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -186,6 +188,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ViewMap.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\RegisterPage.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -221,7 +226,12 @@
     <AndroidResource Include="Resources\drawable\facebookImage.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ButtonStyle.xml" />
+    <AndroidResource Include="Resources\drawable\ButtonStyle.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\CustomEditText.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
