@@ -4,7 +4,8 @@
   <string name="app_name">LostPets.Droid</string>
   <string name="facebook_app_id">889432484552187</string>
   <string name="fb_login_protocol_scheme">fb889432484552187</string>
-  <string name="GoogleKey">AIzaSyB81z-lXccJHvCJ9gM4LD_SBrzMYXhR9c8</string>
+  <string name="GoogleKey">AIzaSyDS6osBuqi9NLqgOR8g0pAhdZ4k-RXZ0uE</string>
+  <!--<string name="GoogleKey">AIzaSyB81z-lXccJHvCJ9gM4LD_SBrzMYXhR9c8</string>-->
   <string name="app_name_face">InnovacionTecnologica</string>
   <string name="login_facebook">Iniciar con facebook</string>
 </resources>

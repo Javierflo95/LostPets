@@ -14,18 +14,35 @@ using Android.Content;
 using Android.Runtime;
 using Org.Json;
 using Entitites;
+using Android.Gms.Auth.Api.SignIn;
+using Android.Gms.Common.Apis;
+using Android.Gms.Auth.Api;
+using Android.Gms.Common;
+using Android.Gms.Plus;
 
 namespace LostPets.Droid
 {
     [Activity(Label = "Lost Pets", Icon = "@mipmap/icon", Theme = "@style/Theme.AppCompat.Light.NoActionBar")]
-    public class MainActivity : AppCompatActivity, IFacebookCallback, GraphRequest.IGraphJSONObjectCallback
+    public class MainActivity : AppCompatActivity, IFacebookCallback, GraphRequest.IGraphJSONObjectCallback, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener
     {
 
         LoginButton btnLogin;
         ICallbackManager oICallbackManager;
         FacebookService oFacebookService;
-
-
+        GoogleApiClient oGoogleApiClient;
+        ConnectionResult oConnectionResult;
+        SignInButton oSignInButton;
+        Button btnRegister;
+        EditText txtUser;
+        EditText txtPassword;
+        private bool mIntentInProgress;
+        private bool mSignInClicked;
+        private bool mInfoPopulated;
+        public string TAG
+        {
+            get;
+            private set;
+        }
 
         public void OnCancel()
         {
@@ -48,25 +65,77 @@ namespace LostPets.Droid
             //Set content View
             SetContentView(Resource.Layout.Main);
             btnLogin = FindViewById<LoginButton>(Resource.Id.fblogin);
+            btnRegister = FindViewById<Button>(Resource.Id.btnRegister);
+            oSignInButton = FindViewById<SignInButton>(Resource.Id.sign_in_button);
+            txtPassword = FindViewById<EditText>(Resource.Id.txtPassword);
+            txtUser = FindViewById<EditText>(Resource.Id.txtUser);
 
-            if (AccessToken.CurrentAccessToken != null && Profile.CurrentProfile != null)
+            btnRegister.Click += delegate
             {
-                ConfigurateFacebookData();
-                StartActivity(typeof(RegisterActivity));
-            }
-            else
-            {
-                ConnectWithFacebook();
-            }
+                if (!string.IsNullOrWhiteSpace(txtPassword.Text) && !string.IsNullOrWhiteSpace(txtUser.Text))
+                {
+                    var user = User.GetInstance();
+                    user.name = txtUser.Text;
+                    user.contrasena = txtPassword.Text;
+                    StartActivity(typeof(RegisterActivity));
+                }
+                else
+                {
+                    Toast.MakeText(this, "Favor llenar los campos", ToastLength.Short).Show();
+                }
+            };
+
+
+            oSignInButton.Click += OSignInButton_Click;
 
             btnLogin.Click += delegate
             {
-                ConnectWithFacebook();
+                if (AccessToken.CurrentAccessToken != null && Profile.CurrentProfile != null)
+                {
+                    ConfigurateFacebookData();
+                    StartActivity(typeof(RegisterActivity));
+                }
+                else
+                {
+                    ConnectWithFacebook();
+                }
             };
 
         }
 
-        public void ConnectWithFacebook()
+        private void OSignInButton_Click(object sender, EventArgs e)
+        {
+            //oGoogleApiClient = new GoogleApiClient.Builder(Application.Context)
+            //                    .AddApi(PlusClass.API)
+            //                    .AddScope(PlusClass.ScopePlusProfile)
+            //                    .AddScope(PlusClass.ScopePlusLogin)
+            //                    .Build();
+            ConfigurateGoogleSigin();
+            oGoogleApiClient.Connect();
+            if (!oGoogleApiClient.IsConnecting)
+            {
+                mSignInClicked = true;
+                ResolveSignInError();
+            }
+            else if (oGoogleApiClient.IsConnected)
+            {
+                PlusClass.AccountApi.ClearDefaultAccount(oGoogleApiClient);
+                oGoogleApiClient.Disconnect();
+            }
+        }
+
+        private void ConfigurateGoogleSigin()
+        {
+            GoogleApiClient.Builder gBuilder = new GoogleApiClient.Builder(this);
+            gBuilder.AddConnectionCallbacks(this);
+            gBuilder.AddOnConnectionFailedListener(this);
+            gBuilder.AddApi(PlusClass.API);
+            gBuilder.AddScope(PlusClass.ScopePlusProfile);
+            gBuilder.AddScope(PlusClass.ScopePlusLogin);
+            oGoogleApiClient = gBuilder.Build();
+        }
+
+        private void ConnectWithFacebook()
         {
             //Initializes the sdk face
             FacebookSdk.SdkInitialize(this.ApplicationContext);
@@ -87,7 +156,7 @@ namespace LostPets.Droid
 
         }
 
-        public void ConfigurateFacebookData()
+        private void ConfigurateFacebookData()
         {
             GraphRequest oGraphRequest = GraphRequest.NewMeRequest(AccessToken.CurrentAccessToken, this);
             Bundle parameters = new Bundle();
@@ -100,14 +169,16 @@ namespace LostPets.Droid
 
         private void OFacebookService_mOnProfileChanged(object sender, OnProfileChangedEventArgs e)
         {
+            var fb = FacebookProfile.GetInstance();
+
             if (e.mProfile != null)
             {
                 try
                 {
-                    Global.GlobalApp.facebookProfile.firstName = e.mProfile.FirstName;
-                    Global.GlobalApp.facebookProfile.lastName = e.mProfile.LastName;
-                    Global.GlobalApp.facebookProfile.name = e.mProfile.Name;
-                    Global.GlobalApp.facebookProfile.id = e.mProfile.Id;
+                    fb.firstName = e.mProfile.FirstName;
+                    fb.lastName = e.mProfile.LastName;
+                    fb.name = e.mProfile.Name;
+                    fb.id = e.mProfile.Id;
                     StartActivity(typeof(RegisterActivity));
 
                 }
@@ -117,10 +188,10 @@ namespace LostPets.Droid
             }
             else
             {
-                Global.GlobalApp.facebookProfile.firstName = string.Empty;
-                Global.GlobalApp.facebookProfile.lastName = string.Empty;
-                Global.GlobalApp.facebookProfile.name = string.Empty;
-                Global.GlobalApp.facebookProfile.id= string.Empty;
+                fb.firstName = string.Empty;
+                fb.lastName = string.Empty;
+                fb.name = string.Empty;
+                fb.id = string.Empty;
             }
         }
 
@@ -128,6 +199,16 @@ namespace LostPets.Droid
         {
             base.OnActivityResult(requestCode, resultCode, data);
             oICallbackManager.OnActivityResult(requestCode, (int)resultCode, data);
+            //if (requestCode == 0)
+            //{
+            //    if (resultCode != Result.Ok)
+            //        mSignInClicked = false;
+
+            //    mIntentInProgress = false;
+
+            //    if (!oGoogleApiClient.IsConnecting)
+            //        oGoogleApiClient.Connect();
+            //}
         }
 
         public void OnCompleted(JSONObject json, GraphResponse response)
@@ -137,11 +218,7 @@ namespace LostPets.Droid
                 if (json != null)
                 {
                     var _json = Newtonsoft.Json.JsonConvert.DeserializeObject<FacebookProfile>(json.ToString());
-
-                    Global.GlobalApp.facebookProfile = _json;
-                    Global.GlobalApp.facebookProfile.id = json.OptString("id");
-                    Global.GlobalApp.facebookProfile.name = _json.name;
-                    Global.GlobalApp.accessToken = AccessToken.CurrentAccessToken.ToString();
+                    FacebookProfile.SetInstance(_json);
                 }
             }
             catch (System.Exception ex)
@@ -155,6 +232,54 @@ namespace LostPets.Droid
             oFacebookService.StopTracking();
             base.OnDestroy();
 
+        }
+
+        public void OnConnected(Bundle connectionHint)
+        {
+            var person = PlusClass.PeopleApi.GetCurrentPerson(oGoogleApiClient);
+            var name = string.Empty;
+            if (person != null)
+            {
+                //GoogleProfile.
+                // var Img = person.Image.Url;
+                //var imageBitmap = GetImageBitmapFromUrl(Img.Remove(Img.Length - 5));
+                //if (imageBitmap != null) ImgProfile.SetImageBitmap(imageBitmap);
+            }
+        }
+
+
+        private void ResolveSignInError()
+        {
+            if (oGoogleApiClient.IsConnecting) return;
+
+            if (oConnectionResult.HasResolution)
+            {
+                try
+                {
+                    mIntentInProgress = true;
+                    StartIntentSenderForResult(oConnectionResult.Resolution.IntentSender, 0, null, 0, 0, 0);
+                }
+                catch (Android.Content.IntentSender.SendIntentException io)
+                {
+                    mIntentInProgress = false;
+                    oGoogleApiClient.Connect();
+                }
+            }
+        }
+
+        public void OnConnectionSuspended(int cause)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnConnectionFailed(ConnectionResult result)
+        {
+            if (!mIntentInProgress)
+            {
+                oConnectionResult = result;
+                if (mSignInClicked)
+                    ResolveSignInError();
+            }
         }
     }
 }

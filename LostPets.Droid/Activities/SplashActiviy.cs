@@ -29,16 +29,6 @@ namespace LostPets.Droid.Activities
                 .WithSplashTimeOut(5000)// 5 sec
                 .WithBackgroundColor(Color.ParseColor("#F2E2CE"))
                 .WithLogo(Resource.Drawable.splashScreen);
-                //.WithHeaderText("Bienvenido a LostPets!.")
-                //.WithFooterText("Copyright 2018")
-                //.WithBeforeLogoText("universidad ECCI")
-                //.WithAfterLogoText("Innovacion Tecnologica");
-
-            //Set Text Color
-            //config.HeaderTextView.SetTextColor(Color.White);
-            //config.FooterTextView.SetTextColor(Color.White);
-            //config.BeforeLogoTextView.SetTextColor(Color.White);
-            //config.AfterLogoTextView.SetTextColor(Color.White);
 
             //Create View
             View oView = config.Create();

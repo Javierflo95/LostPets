@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Entitites
 {
-    public class FacebookProfile
+    public class GoogleProfile
     {
         public string id { get; set; }
         public string name { get; set; }
@@ -23,17 +23,16 @@ namespace Entitites
         public string address { get; set; }
         public string accessToken { get; set; }
 
+        private static GoogleProfile instance;
 
-        private static FacebookProfile instance;
-
-        public static FacebookProfile GetInstance()
+        public static GoogleProfile GetInstance()
         {
             if (instance == null)
-                return new FacebookProfile();
+                return new GoogleProfile();
             return instance;
         }
 
-        public static void SetInstance(FacebookProfile profile)
+        public static void SetInstance(GoogleProfile profile)
         {
             instance = profile;
         }

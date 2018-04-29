@@ -13,6 +13,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Webkit;
 using Android.Widget;
+using Entitites;
 using Xamarin.Facebook.Login.Widget;
 
 namespace LostPets.Droid.Activities
@@ -49,10 +50,20 @@ namespace LostPets.Droid.Activities
             txtCorreo = FindViewById<EditText>(Resource.Id.txtCorreo);
             txtName = FindViewById<EditText>(Resource.Id.txtName);
 
-            var a = Global.GlobalApp.facebookProfile;
-            oProfilePictureView.ProfileId = Global.GlobalApp.facebookProfile.id;
-            txtName.Text = Global.GlobalApp.facebookProfile.name;
-            txtCorreo.Text = Global.GlobalApp.facebookProfile.email;
+            FacebookProfile fb = FacebookProfile.GetInstance();
+            if (fb.id != null)
+            {
+                oProfilePictureView.ProfileId = fb.id;
+                txtName.Text = fb.name;
+                txtCorreo.Text = fb.email;
+            }
+            else
+            {
+                User oUser = User.GetInstance();
+                txtName.Text = oUser.name;
+                txtCorreo.Text = oUser.email;
+            }
+           
         }
     }
 }
