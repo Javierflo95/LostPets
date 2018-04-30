@@ -50,20 +50,11 @@ namespace LostPets.Droid.Activities
             txtCorreo = FindViewById<EditText>(Resource.Id.txtCorreo);
             txtName = FindViewById<EditText>(Resource.Id.txtName);
 
-            FacebookProfile fb = FacebookProfile.GetInstance();
-            if (fb.id != null)
-            {
-                oProfilePictureView.ProfileId = fb.id;
-                txtName.Text = fb.name;
-                txtCorreo.Text = fb.email;
-            }
-            else
-            {
-                User oUser = User.GetInstance();
-                txtName.Text = oUser.name;
-                txtCorreo.Text = oUser.email;
-            }
-           
+            Owner oOwner = Owner.GetInstance();
+            oProfilePictureView.ProfileId = oOwner.facebookId;
+            txtName.Text = oOwner.name;
+            txtCorreo.Text = oOwner.email;
+
         }
     }
 }

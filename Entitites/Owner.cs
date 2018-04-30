@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Entitites
 {
-    public class User
+    public class Owner
     {
         public string id { get; set; }
         public string name { get; set; }
@@ -21,19 +21,22 @@ namespace Entitites
         public string birthday { get; set; }
         public string email { get; set; }
         public string address { get; set; }
-        public string accessToken { get; set; }
+        public string accessTokenApi { get; set; }
+        public string accessTokenFacebook { get; set; }
+        public string facebookId { get; set; }
+        public string accessTokenGoogle { get; set; }
         public string contrasena { get; set; }
 
-        private static User instance;
+        private static Owner instance;
 
-        public static User GetInstance()
+        public static Owner GetInstance()
         {
             if (instance == null)
-                return new User();
+                return new Owner();
             return instance;
         }
 
-        public static void SetInstance(User profile)
+        public static void SetInstance(Owner profile)
         {
             instance = profile;
         }

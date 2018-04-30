@@ -33,7 +33,7 @@ namespace LostPets.Droid
         ConnectionResult oConnectionResult;
         SignInButton oSignInButton;
         Button btnRegister;
-        EditText txtUser;
+        EditText txtEmail;
         EditText txtPassword;
         private bool mIntentInProgress;
         private bool mSignInClicked;
@@ -68,14 +68,14 @@ namespace LostPets.Droid
             btnRegister = FindViewById<Button>(Resource.Id.btnRegister);
             oSignInButton = FindViewById<SignInButton>(Resource.Id.sign_in_button);
             txtPassword = FindViewById<EditText>(Resource.Id.txtPassword);
-            txtUser = FindViewById<EditText>(Resource.Id.txtUser);
+            txtEmail = FindViewById<EditText>(Resource.Id.txtEmail);
 
             btnRegister.Click += delegate
             {
-                if (!string.IsNullOrWhiteSpace(txtPassword.Text) && !string.IsNullOrWhiteSpace(txtUser.Text))
+                if (!string.IsNullOrWhiteSpace(txtPassword.Text) && !string.IsNullOrWhiteSpace(txtEmail.Text))
                 {
-                    var user = User.GetInstance();
-                    user.name = txtUser.Text;
+                    var user = Owner.GetInstance();
+                    user.email = txtEmail.Text;
                     user.contrasena = txtPassword.Text;
                     StartActivity(typeof(RegisterActivity));
                 }
@@ -169,7 +169,7 @@ namespace LostPets.Droid
 
         private void OFacebookService_mOnProfileChanged(object sender, OnProfileChangedEventArgs e)
         {
-            var fb = FacebookProfile.GetInstance();
+            var fb = Owner.GetInstance();
 
             if (e.mProfile != null)
             {
@@ -178,7 +178,7 @@ namespace LostPets.Droid
                     fb.firstName = e.mProfile.FirstName;
                     fb.lastName = e.mProfile.LastName;
                     fb.name = e.mProfile.Name;
-                    fb.id = e.mProfile.Id;
+                    fb.facebookId = e.mProfile.Id;
                     StartActivity(typeof(RegisterActivity));
 
                 }
@@ -217,8 +217,8 @@ namespace LostPets.Droid
             {
                 if (json != null)
                 {
-                    var _json = Newtonsoft.Json.JsonConvert.DeserializeObject<FacebookProfile>(json.ToString());
-                    FacebookProfile.SetInstance(_json);
+                    var _json = Newtonsoft.Json.JsonConvert.DeserializeObject<Owner>(json.ToString());
+                    Owner.SetInstance(_json);
                 }
             }
             catch (System.Exception ex)

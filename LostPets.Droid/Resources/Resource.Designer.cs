@@ -2707,6 +2707,9 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c00a4
 			public const int txtCorreo = 2131493028;
 			
+			// aapt resource value: 0x7f0c0085
+			public const int txtEmail = 2131492997;
+			
 			// aapt resource value: 0x7f0c00a1
 			public const int txtName = 2131493025;
 			
@@ -2715,9 +2718,6 @@ namespace LostPets.Droid
 			
 			// aapt resource value: 0x7f0c0086
 			public const int txtPassword = 2131492998;
-			
-			// aapt resource value: 0x7f0c0085
-			public const int txtUser = 2131492997;
 			
 			// aapt resource value: 0x7f0c0018
 			public const int unknown = 2131492888;
