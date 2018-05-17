@@ -19,5 +19,19 @@ namespace Entitites
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
         public List<Pet> pets { get; set; }
+
+        private static Breed instance;
+
+        public static Breed GetInstance()
+        {
+            if (instance == null)
+                return new Breed();
+            return instance;
+        }
+
+        public static void SetInstance(Breed breed)
+        {
+            instance = breed;
+        }
     }
 }

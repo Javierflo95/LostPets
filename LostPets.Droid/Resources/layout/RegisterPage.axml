@@ -9,6 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="142.0dp"
         android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/ImgPhoto"
+            android:layout_width="72.5dp"
+            android:layout_height="76.5dp"
+            android:layout_marginTop="0.0dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="15.0dp" />
         <com.facebook.login.widget.ProfilePictureView
             android:id="@+id/ImgPro"
             android:layout_width="72.5dp"

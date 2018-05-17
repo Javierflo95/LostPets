@@ -19,6 +19,8 @@ using Android.Gms.Common.Apis;
 using Android.Gms.Auth.Api;
 using Android.Gms.Common;
 using Android.Gms.Plus;
+using Repository;
+using System.Threading.Tasks;
 
 namespace LostPets.Droid
 {
@@ -38,11 +40,7 @@ namespace LostPets.Droid
         private bool mIntentInProgress;
         private bool mSignInClicked;
         private bool mInfoPopulated;
-        public string TAG
-        {
-            get;
-            private set;
-        }
+        public string TAG { get; private set; }
 
         public void OnCancel()
         {
@@ -50,6 +48,8 @@ namespace LostPets.Droid
 
         public void OnError(FacebookException error)
         {
+            //string error = $"Ocurrio un erro al intentar conectar con Facebook {error}";
+            Toast.MakeText(this, "Ocurrio un erro al intentar conectar con Faceboo", ToastLength.Short).Show();
         }
 
         public void OnSuccess(Java.Lang.Object result)
@@ -70,21 +70,7 @@ namespace LostPets.Droid
             txtPassword = FindViewById<EditText>(Resource.Id.txtPassword);
             txtEmail = FindViewById<EditText>(Resource.Id.txtEmail);
 
-            btnRegister.Click += delegate
-            {
-                if (!string.IsNullOrWhiteSpace(txtPassword.Text) && !string.IsNullOrWhiteSpace(txtEmail.Text))
-                {
-                    var user = Owner.GetInstance();
-                    user.email = txtEmail.Text;
-                    user.contrasena = txtPassword.Text;
-                    StartActivity(typeof(RegisterActivity));
-                }
-                else
-                {
-                    Toast.MakeText(this, "Favor llenar los campos", ToastLength.Short).Show();
-                }
-            };
-
+            btnRegister.Click += BtnRegister_Click;
 
             oSignInButton.Click += OSignInButton_Click;
 
@@ -100,7 +86,37 @@ namespace LostPets.Droid
                     ConnectWithFacebook();
                 }
             };
+        }
 
+        private async void BtnRegister_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(txtPassword.Text) && !string.IsNullOrWhiteSpace(txtEmail.Text))
+                {
+                    Repository.Services.Service oService = new Repository.Services.Service();
+
+                    var owner = await oService.LoginApi(txtEmail.Text, txtPassword.Text);
+
+                    if (owner != null)
+                    {
+                        Owner.SetInstance(owner);
+                        var welcome = $"Bienvenido {owner.firstName} a LostPests ";
+                        Toast.MakeText(this, welcome, ToastLength.Long).Show();
+                        StartActivity(typeof(RegisterActivity));
+                    }
+                    else
+                        Toast.MakeText(this, "Error en la autenticacion", ToastLength.Long).Show();
+                }
+                else
+                {
+                    Toast.MakeText(this, "Favor llenar los campos", ToastLength.Short).Show();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                Toast.MakeText(this, "Erro al conectar con el servicio" + ex.Message, ToastLength.Short).Show();
+            }
         }
 
         private void OSignInButton_Click(object sender, EventArgs e)
@@ -177,7 +193,6 @@ namespace LostPets.Droid
                 {
                     fb.firstName = e.mProfile.FirstName;
                     fb.lastName = e.mProfile.LastName;
-                    fb.name = e.mProfile.Name;
                     fb.facebookId = e.mProfile.Id;
                     StartActivity(typeof(RegisterActivity));
 
@@ -190,7 +205,6 @@ namespace LostPets.Droid
             {
                 fb.firstName = string.Empty;
                 fb.lastName = string.Empty;
-                fb.name = string.Empty;
                 fb.id = string.Empty;
             }
         }

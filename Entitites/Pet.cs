@@ -17,5 +17,7 @@ namespace Entitites
         public int breedId { get; set; }
         public int ownerId { get; set; }
         public List<Pet> pets { get; set; }
+
+
     }
 }

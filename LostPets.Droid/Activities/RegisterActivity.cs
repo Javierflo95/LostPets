@@ -50,11 +50,33 @@ namespace LostPets.Droid.Activities
             txtCorreo = FindViewById<EditText>(Resource.Id.txtCorreo);
             txtName = FindViewById<EditText>(Resource.Id.txtName);
 
+            oProfilePictureView.Click += OProfilePictureView_Click;
+
             Owner oOwner = Owner.GetInstance();
             oProfilePictureView.ProfileId = oOwner.facebookId;
-            txtName.Text = oOwner.name;
+            txtName.Text = $"{oOwner.firstName} { oOwner.lastName}";
             txtCorreo.Text = oOwner.email;
+        }
 
+        private void OProfilePictureView_Click(object sender, EventArgs e)
+        {
+            var imageIntent = new Intent();
+            imageIntent.SetType("image/*");
+            imageIntent.SetAction(Intent.ActionGetContent);
+            StartActivityForResult(
+                Intent.CreateChooser(imageIntent, "Select photo"), 0);
+        }
+
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if (resultCode == Result.Ok)
+            {
+                var imageView = FindViewById<ImageView>(Resource.Id.ImgPhoto);
+                oProfilePictureView.Visibility = ViewStates.Invisible;
+                imageView.SetImageURI(data.Data);
+                imageView.Visibility = ViewStates.Visible;
+            }
         }
     }
 }

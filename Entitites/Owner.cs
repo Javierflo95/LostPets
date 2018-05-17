@@ -15,18 +15,18 @@ namespace Entitites
     public class Owner
     {
         public string id { get; set; }
-        public string name { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
-        public string birthday { get; set; }
         public string email { get; set; }
+        public string identificationNumber { get; set; }
+        public string location { get; set; }
         public string address { get; set; }
-        public string accessTokenApi { get; set; }
-        public string accessTokenFacebook { get; set; }
         public string facebookId { get; set; }
-        public string accessTokenGoogle { get; set; }
+        public string phone { get; set; }
         public string contrasena { get; set; }
-
+        public string MessageStatusCode { get; set; }
+        public DateTime createdAt { get; set; }
+        public DateTime updatedAt { get; set; }
         private static Owner instance;
 
         public static Owner GetInstance()
@@ -36,9 +36,9 @@ namespace Entitites
             return instance;
         }
 
-        public static void SetInstance(Owner profile)
+        public static void SetInstance(Owner owner)
         {
-            instance = profile;
+            instance = owner;
         }
     }
 }

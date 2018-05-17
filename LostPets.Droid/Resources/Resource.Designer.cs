@@ -2215,6 +2215,9 @@ namespace LostPets.Droid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f0c00a1
+			public const int ImgPhoto = 2131493025;
+			
 			// aapt resource value: 0x7f0c007d
 			public const int ImgPro = 2131492989;
 			
@@ -2299,8 +2302,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c000f
 			public const int adjust_width = 2131492879;
 			
-			// aapt resource value: 0x7f0c00ac
-			public const int after_logo_tv = 2131493036;
+			// aapt resource value: 0x7f0c00ad
+			public const int after_logo_tv = 2131493037;
 			
 			// aapt resource value: 0x7f0c0054
 			public const int alertTitle = 2131492948;
@@ -2314,8 +2317,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0021
 			public const int automatic = 2131492897;
 			
-			// aapt resource value: 0x7f0c00aa
-			public const int before_logo_tv = 2131493034;
+			// aapt resource value: 0x7f0c00ab
+			public const int before_logo_tv = 2131493035;
 			
 			// aapt resource value: 0x7f0c0035
 			public const int beginning = 2131492917;
@@ -2329,8 +2332,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0087
 			public const int btnRegister = 2131492999;
 			
-			// aapt resource value: 0x7f0c00a7
-			public const int btnRegistro = 2131493031;
+			// aapt resource value: 0x7f0c00a8
+			public const int btnRegistro = 2131493032;
 			
 			// aapt resource value: 0x7f0c001a
 			public const int button = 2131492890;
@@ -2431,11 +2434,11 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c007c
 			public const int fblogin = 2131492988;
 			
-			// aapt resource value: 0x7f0c00ad
-			public const int footer_tv = 2131493037;
+			// aapt resource value: 0x7f0c00ae
+			public const int footer_tv = 2131493038;
 			
-			// aapt resource value: 0x7f0c00a9
-			public const int header_tv = 2131493033;
+			// aapt resource value: 0x7f0c00aa
+			public const int header_tv = 2131493034;
 			
 			// aapt resource value: 0x7f0c0004
 			public const int home = 2131492868;
@@ -2485,8 +2488,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c009d
 			public const int line3 = 2131493021;
 			
-			// aapt resource value: 0x7f0c00a3
-			public const int linear2 = 2131493027;
+			// aapt resource value: 0x7f0c00a4
+			public const int linear2 = 2131493028;
 			
 			// aapt resource value: 0x7f0c0083
 			public const int linearLayout1 = 2131492995;
@@ -2497,11 +2500,11 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0044
 			public const int list_item = 2131492932;
 			
-			// aapt resource value: 0x7f0c00ab
-			public const int logo = 2131493035;
+			// aapt resource value: 0x7f0c00ac
+			public const int logo = 2131493036;
 			
-			// aapt resource value: 0x7f0c00a6
-			public const int map = 2131493030;
+			// aapt resource value: 0x7f0c00a7
+			public const int map = 2131493031;
 			
 			// aapt resource value: 0x7f0c008f
 			public const int media_actions = 2131493007;
@@ -2560,8 +2563,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c00a0
 			public const int relative = 2131493024;
 			
-			// aapt resource value: 0x7f0c00a5
-			public const int relativeMap = 2131493029;
+			// aapt resource value: 0x7f0c00a6
+			public const int relativeMap = 2131493030;
 			
 			// aapt resource value: 0x7f0c0020
 			public const int right = 2131492896;
@@ -2641,8 +2644,8 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0048
 			public const int spacer = 2131492936;
 			
-			// aapt resource value: 0x7f0c00a8
-			public const int splash_wrapper_rl = 2131493032;
+			// aapt resource value: 0x7f0c00a9
+			public const int splash_wrapper_rl = 2131493033;
 			
 			// aapt resource value: 0x7f0c0007
 			public const int split_action_bar = 2131492871;
@@ -2704,17 +2707,17 @@ namespace LostPets.Droid
 			// aapt resource value: 0x7f0c0052
 			public const int topPanel = 2131492946;
 			
-			// aapt resource value: 0x7f0c00a4
-			public const int txtCorreo = 2131493028;
+			// aapt resource value: 0x7f0c00a5
+			public const int txtCorreo = 2131493029;
 			
 			// aapt resource value: 0x7f0c0085
 			public const int txtEmail = 2131492997;
 			
-			// aapt resource value: 0x7f0c00a1
-			public const int txtName = 2131493025;
-			
 			// aapt resource value: 0x7f0c00a2
-			public const int txtNumber = 2131493026;
+			public const int txtName = 2131493026;
+			
+			// aapt resource value: 0x7f0c00a3
+			public const int txtNumber = 2131493027;
 			
 			// aapt resource value: 0x7f0c0086
 			public const int txtPassword = 2131492998;
