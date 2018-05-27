@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using Entitites;
 using GR.Net.Maroulis.Library;
 
 namespace LostPets.Droid.Activities
@@ -21,6 +22,13 @@ namespace LostPets.Droid.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            Token oToken = Token.GetInstance();
+
+            if (!string.IsNullOrWhiteSpace(oToken.accessTokenApi))
+            {
+                StartActivity(typeof(OwnerProfileActivity));
+            }
 
             //Show Splash Screen
             var config = new EasySplashScreen(this)
@@ -35,6 +43,9 @@ namespace LostPets.Droid.Activities
 
             //Set Content View
             SetContentView(oView);
+
+
+
         }
     }
 }

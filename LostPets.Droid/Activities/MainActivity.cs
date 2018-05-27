@@ -35,6 +35,7 @@ namespace LostPets.Droid
         ConnectionResult oConnectionResult;
         SignInButton oSignInButton;
         Button btnRegister;
+        Button btnIngresar;
         EditText txtEmail;
         EditText txtPassword;
         private bool mIntentInProgress;
@@ -65,12 +66,17 @@ namespace LostPets.Droid
             //Set content View
             SetContentView(Resource.Layout.Main);
             btnLogin = FindViewById<LoginButton>(Resource.Id.fblogin);
+            btnIngresar = FindViewById<Button>(Resource.Id.btnIngresar);
             btnRegister = FindViewById<Button>(Resource.Id.btnRegister);
             oSignInButton = FindViewById<SignInButton>(Resource.Id.sign_in_button);
             txtPassword = FindViewById<EditText>(Resource.Id.txtPassword);
             txtEmail = FindViewById<EditText>(Resource.Id.txtEmail);
 
-            btnRegister.Click += BtnRegister_Click;
+            btnIngresar.Click += BtnIngresar_Click;
+            btnRegister.Click += delegate
+            {
+                StartActivity(typeof(RegisterActivity));
+            };
 
             oSignInButton.Click += OSignInButton_Click;
 
@@ -88,7 +94,7 @@ namespace LostPets.Droid
             };
         }
 
-        private async void BtnRegister_Click(object sender, EventArgs e)
+        private async void BtnIngresar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -100,10 +106,11 @@ namespace LostPets.Droid
 
                     if (owner != null)
                     {
+                        
                         Owner.SetInstance(owner);
                         var welcome = $"Bienvenido {owner.firstName} a LostPests ";
                         Toast.MakeText(this, welcome, ToastLength.Long).Show();
-                        StartActivity(typeof(RegisterActivity));
+                        StartActivity(typeof(OwnerProfileActivity));
                     }
                     else
                         Toast.MakeText(this, "Error en la autenticacion", ToastLength.Long).Show();
@@ -243,9 +250,11 @@ namespace LostPets.Droid
 
         protected override void OnDestroy()
         {
-            oFacebookService.StopTracking();
-            base.OnDestroy();
-
+            if (oFacebookService != null)
+            {
+                oFacebookService.StopTracking();
+                base.OnDestroy();
+            }
         }
 
         public void OnConnected(Bundle connectionHint)

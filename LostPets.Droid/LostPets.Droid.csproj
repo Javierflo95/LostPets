@@ -175,6 +175,7 @@
   <ItemGroup>
     <Compile Include="Activities\FacebookActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Activities\OwnerProfileActivity.cs" />
     <Compile Include="Activities\RegisterActivity.cs" />
     <Compile Include="Activities\SplashActiviy.cs" />
     <Compile Include="Activities\ViewMapActivity.cs" />
@@ -197,6 +198,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\RegisterPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\OwnerProfile.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

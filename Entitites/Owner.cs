@@ -24,6 +24,7 @@ namespace Entitites
         public string facebookId { get; set; }
         public string phone { get; set; }
         public string contrasena { get; set; }
+        public string photo { get; set; }
         public string MessageStatusCode { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }

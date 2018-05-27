@@ -63,26 +63,33 @@
             android:layout_marginRight="28.5dp">
             <EditText
                 android:id="@+id/txtEmail"
-                android:layout_width="278.0dp"
+                android:layout_width="247.5dp"
                 android:layout_height="wrap_content"
                 android:hint="Correo"
                 android:layout_marginLeft="43.0dp"
                 android:layout_marginTop="49.5dp" />
             <EditText
                 android:id="@+id/txtPassword"
-                android:layout_width="275.0dp"
+                android:layout_width="245.0dp"
                 android:layout_height="44.5dp"
                 android:hint="Contraseña"
                 android:layout_marginLeft="43.0dp"
                 android:layout_marginTop="9.5dp"
                 android:password="true" />
             <Button
-                android:id="@+id/btnRegister"
-                android:layout_width="273.5dp"
+                android:id="@+id/btnIngresar"
+                android:layout_width="237.5dp"
                 android:layout_height="wrap_content"
-                android:text="Ingresa"
+                android:text="Ingresar"
                 android:layout_marginLeft="44.5dp"
                 android:layout_marginTop="12.0dp" />
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="240.5dp"
+                android:layout_height="wrap_content"
+                android:text="registrate"
+                android:layout_marginLeft="44.5dp"
+                android:layout_marginTop="20dp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

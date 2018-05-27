@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+using Android.Telephony;
 using Entitites;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -45,7 +39,9 @@ namespace Repository.Services
                 var jsonResponse = await response.Content.ReadAsStringAsync();
                 var algo = JObject.Parse(jsonResponse);
                 oOwner = JsonConvert.DeserializeObject<Owner>(algo["owner"].ToString());
+                Owner.SetInstance(oOwner);
                 oToken.accessTokenApi = algo["token"].ToString();
+                Token.SetInstance(oToken);
                 return oOwner;
             }
             catch (Exception ex)
@@ -53,6 +49,83 @@ namespace Repository.Services
                 oOwner.MessageStatusCode = $"Error al conectarse con el servicio {ex.Message}";
                 return oOwner;
             }
+        }
+
+        public async Task<Owner> RegisterApi(Owner oOwner)
+        {
+            Owner _oOwner = Owner.GetInstance();
+            Token oToken = Token.GetInstance();
+            HttpClient client = new HttpClient();
+
+            var datos = new
+            {
+                firstName = oOwner.firstName,
+                lastName = "lastName",
+                identificationNumber = oOwner.identificationNumber,
+                location = oOwner.location,
+                address = oOwner.address,
+                phone = oOwner.phone,
+                email = oOwner.email,
+                password = "qwerty",
+            };
+
+            try
+            {
+                var stringContent = new StringContent(JsonConvert.SerializeObject(datos), Encoding.UTF8, "application/json");
+                var _urlRegister = $"http://192.168.0.18:8080/api/register";
+
+                var response = await client.PostAsync(_urlRegister, stringContent);
+
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+
+                if (response.StatusCode != HttpStatusCode.Created)
+                    throw new Exception(jsonResponse);
+
+                var algo = JObject.Parse(jsonResponse);
+                oOwner = JsonConvert.DeserializeObject<Owner>(algo["owner"].ToString());
+                Owner.SetInstance(oOwner);
+                oToken.accessTokenApi = algo["token"].ToString();
+                Token.SetInstance(oToken);
+                return oOwner;
+            }
+            catch (Exception ex)
+            {
+                oOwner.MessageStatusCode = $"Error al conectarse con el servicio {ex.Message}";
+                return oOwner;
+            }
+
+        }
+
+        public async Task<Owner> GetOwnerApi(Token oToken)
+        {
+            Owner oOwner = Owner.GetInstance();
+            HttpClient client = new HttpClient();
+            var stringContent = new StringContent("", Encoding.UTF8, "application/json");
+            var _urlProfile = $"http://192.168.0.18:8080/api/profile";
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", oToken.accessTokenApi);
+
+            try
+            {
+                var response = await client.PostAsync(_urlProfile, stringContent);
+
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+
+                if (response.StatusCode != HttpStatusCode.Created)
+                    throw new Exception(jsonResponse);
+
+                var algo = JObject.Parse(jsonResponse);
+                oOwner = JsonConvert.DeserializeObject<Owner>(algo["owner"].ToString());
+                Owner.SetInstance(oOwner);
+                oToken.accessTokenApi = algo["token"].ToString();
+                Token.SetInstance(oToken);
+                return oOwner;
+            }
+            catch (Exception ex)
+            {
+                oOwner.MessageStatusCode = $"Error al conectarse con el servicio {ex.Message}";
+                return oOwner;
+            }
+
         }
     }
 }

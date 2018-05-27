@@ -7,7 +7,7 @@
     <RelativeLayout
         android:id="@+id/relative"
         android:layout_width="match_parent"
-        android:layout_height="142.0dp"
+        android:layout_height="196.0dp"
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/ImgPhoto"
@@ -31,13 +31,13 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:singleLine="true"
-            android:background="@drawable/CustomEditText"
             android:layout_marginLeft="91.5dp"
             android:layout_marginRight="14.5dp"
             android:layout_marginTop="7.0dp"
             android:textColor="#8B4513"
             android:textColorHint="#8B4513"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:background="@drawable/CustomEditText" />
         <EditText
             android:layout_width="300dp"
             android:layout_height="27.5dp"
@@ -56,38 +56,53 @@
             android:id="@+id/linear2"
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="152.0dp"
             android:layout_marginTop="81.5dp"
             android:minWidth="25px"
             android:minHeight="25px">
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="51.0dp"
+                android:layout_width="377.0dp"
+                android:layout_height="50.0dp"
                 android:id="@+id/txtCorreo"
                 android:textColor="#8B4513"
                 android:textColorHint="#8B4513"
                 android:hint="Correo electronico"
-                android:layout_marginTop="18.5dp"
-                android:layout_marginRight="0.0dp" />
+                android:layout_marginTop="3.0dp"
+                android:layout_marginRight="0.0dp"
+                android:inputType="textEmailAddress"
+                android:layout_marginLeft="5.0dp" />
+            <EditText
+                android:layout_width="337.0dp"
+                android:layout_height="47.0dp"
+                android:id="@+id/txtCedula"
+                android:textColor="#8B4513"
+                android:textColorHint="#8B4513"
+                android:hint="Cedula"
+                android:layout_marginTop="2.5dp"
+                android:layout_marginLeft="5.5dp"
+                android:layout_marginRight="25.5dp" />
         </LinearLayout>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/relativeMap"
         android:layout_width="match_parent"
-        android:layout_height="344.5dp"
-        android:orientation="vertical">
+        android:layout_height="237.5dp"
+        android:orientation="vertical"
+        android:layout_marginTop="37.0dp">
         <fragment
             android:id="@+id/map"
-            android:layout_width="376.0dp"
-            android:layout_height="343.5dp"
+            android:layout_width="334.0dp"
+            android:layout_height="231.5dp"
             class="com.google.android.gms.maps.MapFragment"
-            android:layout_marginLeft="7.0dp"
-            android:layout_marginRight="9.5dp" />
+            android:layout_marginLeft="26.5dp"
+            android:layout_marginRight="9.5dp"
+            android:layout_marginTop="0.0dp" />
     </RelativeLayout>
     <Button
-        android:text="Button"
+        android:text="Registrate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnRegistro"
-        android:layout_marginTop="11.5dp" />
+        android:layout_marginTop="0.0dp"
+        android:layout_marginBottom="10.5dp" />
 </LinearLayout>
