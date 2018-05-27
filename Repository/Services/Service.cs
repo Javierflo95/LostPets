@@ -106,19 +106,36 @@ namespace Repository.Services
 
             try
             {
-                var response = await client.PostAsync(_urlProfile, stringContent);
 
-                var jsonResponse = await response.Content.ReadAsStringAsync();
+                using (HttpClient oclient = new HttpClient())
+                {
+                    oclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", oToken.accessTokenApi);
+                    using (HttpResponseMessage response = await client.GetAsync(_urlProfile))
+                    {
+                        if (response.StatusCode != HttpStatusCode.OK)
+                        {
+                            using (HttpContent content = response.Content)
+                            {
+                                string result = await content.ReadAsStringAsync();
 
-                if (response.StatusCode != HttpStatusCode.Created)
-                    throw new Exception(jsonResponse);
+                                if (result != null && result.Length >= 50)
+                                {
+                                    var _json = JsonConvert.DeserializeObject<Owner>(result.ToString());
+                                    Owner.SetInstance(_json);
+                                }
+                            }
+                        }
+                    }
 
-                var algo = JObject.Parse(jsonResponse);
-                oOwner = JsonConvert.DeserializeObject<Owner>(algo["owner"].ToString());
-                Owner.SetInstance(oOwner);
-                oToken.accessTokenApi = algo["token"].ToString();
-                Token.SetInstance(oToken);
-                return oOwner;
+                    //var algo = JObject.Parse(jsonResponse);
+                    //oOwner = JsonConvert.DeserializeObject<Owner>(algo["owner"].ToString());
+                    //Owner.SetInstance(oOwner);
+                    //oToken.accessTokenApi = algo["token"].ToString();
+                    //Token.SetInstance(oToken);
+
+                    return oOwner;
+
+                }
             }
             catch (Exception ex)
             {

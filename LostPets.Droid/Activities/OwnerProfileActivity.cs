@@ -18,16 +18,35 @@ namespace LostPets.Droid.Activities
     [Activity(Label = "Lost Pets", Icon = "@mipmap/icon", Theme = "@style/Theme.AppCompat.Light.NoActionBar")]
     public class OwnerProfileActivity : AppCompatActivity
     {
+        TextView lblName;
+        TextView lblPhone;
+        TextView lblMail;
+        TextView lblIdentification;
+        TextView lblAddress;
+
         protected override async void OnCreate(Bundle savedInstanceState)
         {
-
+            Owner oOwner = new Owner();
             Token oToken = Token.GetInstance();
 
             base.OnCreate(savedInstanceState);
 
+            lblName = FindViewById<TextView>(Resource.Id.lblName);
+            lblPhone = FindViewById<TextView>(Resource.Id.lblPhone);
+            lblMail = FindViewById<TextView>(Resource.Id.lblMail);
+            lblIdentification = FindViewById<TextView>(Resource.Id.lblIdentification);
+            lblAddress = FindViewById<TextView>(Resource.Id.lblAddress);
+
+
             SetContentView(Resource.Layout.OwnerProfile);
             Repository.Services.Service oService = new Repository.Services.Service();
-            var a = await oService.GetOwnerApi(oToken);
+            Owner.SetInstance(await oService.GetOwnerApi(oToken));
+            oOwner = Owner.GetInstance();
+            //lblName.Text = oOwner.firstName;
+            //lblPhone.Text = oOwner.phone;
+            //lblMail.Text = oOwner.email;
+            //lblIdentification.Text = oOwner.identificationNumber;
+            //lblAddress.Text = oOwner.address;
 
         }
 
