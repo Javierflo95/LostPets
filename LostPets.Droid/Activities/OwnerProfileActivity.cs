@@ -23,6 +23,7 @@ namespace LostPets.Droid.Activities
         TextView lblMail;
         TextView lblIdentification;
         TextView lblAddress;
+        Button btnAddPet;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -31,25 +32,30 @@ namespace LostPets.Droid.Activities
 
             base.OnCreate(savedInstanceState);
 
+            SetContentView(Resource.Layout.OwnerProfile);
+
             lblName = FindViewById<TextView>(Resource.Id.lblName);
             lblPhone = FindViewById<TextView>(Resource.Id.lblPhone);
             lblMail = FindViewById<TextView>(Resource.Id.lblMail);
             lblIdentification = FindViewById<TextView>(Resource.Id.lblIdentification);
             lblAddress = FindViewById<TextView>(Resource.Id.lblAddress);
+            btnAddPet = FindViewById<Button>(Resource.Id.btnAddPet);
 
-
-            SetContentView(Resource.Layout.OwnerProfile);
             Repository.Services.Service oService = new Repository.Services.Service();
             Owner.SetInstance(await oService.GetOwnerApi(oToken));
             oOwner = Owner.GetInstance();
-            //lblName.Text = oOwner.firstName;
-            //lblPhone.Text = oOwner.phone;
-            //lblMail.Text = oOwner.email;
-            //lblIdentification.Text = oOwner.identificationNumber;
-            //lblAddress.Text = oOwner.address;
+            lblName.Text = oOwner.firstName;
+            lblPhone.Text = oOwner.phone;
+            lblMail.Text = oOwner.email;
+            lblIdentification.Text = oOwner.identificationNumber;
+            lblAddress.Text = oOwner.address;
+
+            btnAddPet.Click += (e, v) =>
+            {
+                StartActivity(typeof(RegisterPetActivity));
+            };
 
         }
-
 
     }
 }

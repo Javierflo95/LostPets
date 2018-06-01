@@ -29,9 +29,8 @@ namespace Repository.Services
 
             try
             {
-                //var restUrl = $"http://52.171.34.15/api/login";
                 var stringContent = new StringContent(JsonConvert.SerializeObject(datos), Encoding.UTF8, "application/json");
-                var restUrl = $"http://192.168.0.18:8080/api/login";
+                var restUrl = $"{Config.Endpoint}/login";
 
                 HttpResponseMessage response = await client.PostAsync(restUrl, stringContent);
                 if (response.StatusCode != HttpStatusCode.OK) return null;
@@ -72,7 +71,7 @@ namespace Repository.Services
             try
             {
                 var stringContent = new StringContent(JsonConvert.SerializeObject(datos), Encoding.UTF8, "application/json");
-                var _urlRegister = $"http://192.168.0.18:8080/api/register";
+                var _urlRegister = $"{Config.Endpoint}/register";
 
                 var response = await client.PostAsync(_urlRegister, stringContent);
 
@@ -101,7 +100,7 @@ namespace Repository.Services
             Owner oOwner = Owner.GetInstance();
             HttpClient client = new HttpClient();
             var stringContent = new StringContent("", Encoding.UTF8, "application/json");
-            var _urlProfile = $"http://192.168.0.18:8080/api/profile";
+            var _urlProfile = $"{Config.Endpoint}/profile";
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", oToken.accessTokenApi);
 
             try
@@ -112,7 +111,7 @@ namespace Repository.Services
                     oclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", oToken.accessTokenApi);
                     using (HttpResponseMessage response = await client.GetAsync(_urlProfile))
                     {
-                        if (response.StatusCode != HttpStatusCode.OK)
+                        if (response.StatusCode == HttpStatusCode.OK)
                         {
                             using (HttpContent content = response.Content)
                             {
@@ -144,5 +143,53 @@ namespace Repository.Services
             }
 
         }
+
+        public async Task<Pet> RegisterPetApi(Pet oPet, Token oToken)
+        {
+
+            HttpClient client = new HttpClient();
+
+            var datos = new
+            {
+                breedId = oPet.breedId,
+                ownerId = oPet.ownerId,
+                sizeId = oPet.sizeId,
+                name = oPet.name,
+                dateOfBirth = oPet.dateOfBirth,
+                gender = oPet.gender,
+                photo = oPet.photo,
+            };
+
+            try
+            {
+                var stringContent = new StringContent(JsonConvert.SerializeObject(datos), Encoding.UTF8, "multipart/form-data");
+                var _urlRegister = $"{Config.Endpoint}/profile/pets";
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", oToken.accessTokenApi);
+                var response = await client.PostAsync(_urlRegister, stringContent);
+
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+
+                //if (response.StatusCode != HttpStatusCode.Created)
+                //    throw new Exception(jsonResponse);
+
+                //var algo = JObject.Parse(jsonResponse);
+                //oOwner = JsonConvert.DeserializeObject<Owner>(algo["owner"].ToString());
+                //Owner.SetInstance(oOwner);
+                //oToken.accessTokenApi = algo["token"].ToString();
+                //Token.SetInstance(oToken);
+                return oPet;
+            }
+            catch (Exception ex)
+            {
+                return oPet;
+            }
+
+        }
+    }
+
+    public static class Config
+    {
+        //lost-pets.cloudapp.net
+        public static string Endpoint = "http://lost-pets.cloudapp.net/api";//"http://192.168.0.18:8080/api";
     }
 }

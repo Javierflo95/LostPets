@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bright_foreground_material_dark">
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="141.5dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/ImgPhoto"
+            android:layout_width="72.5dp"
+            android:layout_height="76.5dp"
+            android:layout_marginTop="0.0dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="15.0dp"
+            android:src="@android:mipmap/sym_def_app_icon" />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="27.5dp"
+            android:id="@+id/txtNamePet"
+            android:hint="Nombre de la Mascota"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:layout_marginLeft="91.5dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_marginTop="7.0dp"
+            android:textColor="#8B4513"
+            android:textColorHint="#8B4513"
+            android:background="@drawable/CustomEditText"
+            android:textSize="15dp" />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="27.5dp"
+            android:id="@+id/txtAgePet"
+            android:hint="Edad"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:background="@drawable/CustomEditText"
+            android:layout_marginLeft="91.5dp"
+            android:layout_marginRight="14.5dp"
+            android:layout_marginTop="34.5dp"
+            android:textColor="#8B4513"
+            android:textColorHint="#8B4513" />
+    </RelativeLayout>
+    <TextView
+        android:text="¿De que tipo soy?"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#8B4513"
+        android:id="@+id/txtInfo"
+        android:gravity="center_horizontal" />
+    <RelativeLayout
+        android:id="@+id/relativePetsType"
+        android:layout_width="match_parent"
+        android:layout_height="134.0dp"
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <ImageButton
+            android:src="@drawable/catmdpi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgbtnCatType"
+            android:background="@drawable/catmdpi"
+            android:layout_marginTop="24.0dp"
+            android:layout_marginLeft="58.5dp" />
+        <ImageButton
+            android:src="@drawable/dogmdpi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imgbtnCatType"
+            android:id="@+id/imgbtnDogType"
+            android:layout_marginTop="20.5dp"
+            android:layout_marginLeft="77.5dp"
+            android:background="@drawable/dogmdpi" />
+    </RelativeLayout>
+    <TextView
+        android:text="¿Cómo soy?"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#8B4513"
+        android:id="@+id/txtInfo2"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="13.0dp" />
+    <EditText
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="78.5dp"
+        android:id="@+id/txtDescription"
+        android:layout_marginTop="12.0dp"
+        android:textColor="#8B4513" />
+    <Button
+        android:text="Publica mis datos"
+        android:layout_width="314.0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRegisterPet"
+        android:layout_marginTop="36.5dp"
+        android:layout_marginBottom="10.5dp"
+        android:background="#4b3621"
+        android:layout_marginLeft="33.5dp"
+        android:layout_marginRight="24.0dp" />
+</LinearLayout>

@@ -180,6 +180,7 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\OwnerProfileActivity.cs" />
     <Compile Include="Activities\RegisterActivity.cs" />
+    <Compile Include="Activities\RegisterPetActivity.cs" />
     <Compile Include="Activities\SplashActiviy.cs" />
     <Compile Include="Activities\ViewMapActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -204,6 +205,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\OwnerProfile.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\RegisterPet.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -252,6 +256,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\iconformulario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\catmdpi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\dogmdpi.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

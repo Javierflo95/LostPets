@@ -82,14 +82,16 @@
                 android:layout_height="wrap_content"
                 android:text="Ingresar"
                 android:layout_marginLeft="44.5dp"
-                android:layout_marginTop="12.0dp" />
+                android:layout_marginTop="12.0dp"
+                android:background="#d2b699" />
             <Button
                 android:id="@+id/btnRegister"
                 android:layout_width="240.5dp"
                 android:layout_height="wrap_content"
                 android:text="registrate"
                 android:layout_marginLeft="44.5dp"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"
+                android:background="#d2b699" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
